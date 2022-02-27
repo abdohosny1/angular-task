@@ -1,0 +1,30 @@
+
+  
+  <div class="d-flex" style="width: 100%; background-color: rgb(117, 117, 117);">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills" orientation="landscape">
+      <li ngbNavItem="Home" class="listyle">
+        <a ngbNavLink>Home</a>
+        <ng-template ngbNavContent>
+          <!-- <p>Top</p> -->
+        </ng-template>
+      </li>
+      <li ngbNavItem="Product" class="listyle">
+        <a ngbNavLink>Product</a>
+        <ng-template ngbNavContent>
+          <!-- <p>Middel</p> -->
+        </ng-template>
+      </li>
+      <li ngbNavItem="Cart" class="listyle">
+        <a ngbNavLink>Cart</a>
+        <ng-template ngbNavContent>
+          <!-- <p>Bottom</p> -->
+        </ng-template>
+      </li>
+    </ul>
+  
+    <div [ngbNavOutlet]="nav" class="ms-4"></div>
+  </div>
+  
+  <pre>Active: {{ active }}</pre>
+
+  <img src={{pathImage}} alt="image" width="100%">
