@@ -1,12 +1,141 @@
-<h1>{{"Store Name :"+storName}}</h1>
 
-<img [src]="StoreLogo" alt="Image">
 
-<h3>{{"We offer an explicit discount of:"+NoDiscount+"%"}}</h3>
+{{filter|filter}}
 
-<h3>{{"product Name:"+ProductList[0].name}}</h3>
+<h3 *ngIf="!(NoDis==no) then thenBlock else elseBlock; " ></h3>
+
+
+<ng-template #thenBlock>
+
+    <h2>
+        We offer an explicit discount of:{{NoDis|percent :'2.0-3'}}
+
+   </h2>
+</ng-template>
+<ng-template #elseBlock>
+
+    <h2>
+        We offer an explicit discount of:
+
+   </h2>
+</ng-template>
+
+<br><br>
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <h1>{{"Store Name :"+storName}}</h1>
+    </div>
+    <div  class="col-lg-6" style="margin-top: 20px;">
+        <select id='cat' name='category'>
+            <option *ngFor="let item of CategoryList" [value]="item.name">
+              {{item.name}}
+            </option>    
+        </select>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row">
+    
+    
+    <div class="col-lg-2">
+     <input type="text" [(ngModel)]="ClientName" >
+    </div>
+    <div class="col-lg-4">
+    <span>clint Name :  {{ClientName}}</span>
+    </div>
+ 
+       
+ 
+ </div>
+
+ <br><br>
+ <div class="row" *ngIf="IsPurshased  then thenpro; else elsepro; "  ></div>
+    
+    <ng-template #thenpro>
+    <table *ngFor="let item of oneProduct" class="col-lg-3" style="display: inline-block; text-align: center;">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="border: 1px solid rgb(155, 144, 144); text-align: center; margin: 30;">
+                        <img src={{item.img}} width="300" height="300" class=" img_style rounded   d-block "><br>
+                        <span   class="text-primary  d-block span_style"> {{item.name |uppercase}}</span>
+                        <span   class="text-secondary  span_style">  {{item.price |currency}}   </span>
+                        <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span>
+
+                   
+                    </div>
+                </td>
+                <td>
+                   
+                </td>
+            </tr>
+        </tbody>
+    
+    </table>
+</ng-template>
+
+<ng-template #elsepro>
+ <div>
+    Thanks for purchasing from our Store : {{ClientName}}
+ </div>
+</ng-template>
+
+
+
+<button class="buttonn_style" style="width: 300;" (click)="show()">Add To Cart</button>
+
+ <br><br>
+
+<div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+
+
+
+<div class="row">
+    
+        <table *ngFor="let item of ProductList" class="col-lg-3 " style="display: inline-block;">
+            <tbody>
+                <tr>
+                    <td>
+                        <div  class="div_style">
+                            <div class=" view overlay zoom" >
+                                <img src={{item.img}} width="300" height="300" class=" img_style rounded   d-block   "><br>
+                                
+                            </div>
+                            <span   class="text-primary  d-block span_style"> {{item.name |uppercase}}</span>
+                            <span   class="text-secondary  span_style">  {{item.price |currency}}   </span>
+                            <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span>
+
+                            <button class="button_style">Add To Cart</button>
+                       
+                        </div>
+                    </td>
+                    <td>
+                       
+                    </td>
+                </tr>
+            </tbody>
+        
+        </table>
+    
+    
+</div>
+<br><br>
+
+
+
+<!-- <img [src]="StoreLogo" alt="Image"> -->
+
+<!-- {{"We offer an explicit discount of:"+NoDiscount+"%"}} -->
+
+
+
+<!-- <h3>{{"product Name:"+ProductList[0].name}}</h3>
 <h3>{{"product price:"+ProductList[0].price}}</h3>
 <h3>{{"product quentity:"+ProductList[0].quentity}}</h3>
-<img src={{ProductList[0].img}}>
+<img src={{ProductList[0].img}}> -->
 
 

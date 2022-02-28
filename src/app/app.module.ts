@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap' ;
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -18,12 +20,14 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     FooterComponent,
     ProductsComponent,
+    FilterPipe,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,  
-    NgbModule
+    NgbModule,
+    FormsModule
     
   ],
   providers: [],
