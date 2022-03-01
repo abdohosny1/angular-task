@@ -18,6 +18,40 @@
 </ul>
 <div [ngbNavOutlet]="nav"></div> -->
 
-<app-header></app-header>
+<!-- <app-header></app-header>
 <app-products></app-products>
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+<app-products></app-products>
+
+<button  (click)="show()"> Get Data</button>
+<br>
+
+<div class="row" *ngIf="IsPurshased  then thenpro; "  ></div>
+    
+    <ng-template #thenpro>
+    <table *ngFor="let item of ProductList" class="col-lg-3" style="display: inline-block; text-align: center;">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="border: 1px solid rgb(155, 144, 144); text-align: center; margin: 30;">
+                        <img src={{item.img}} width="300" height="300" class=" img_style rounded   d-block "><br>
+                        <span   class="text-primary  d-block span_style"> {{item.name |uppercase}}</span>
+                        <span   class="text-secondary  span_style">  {{item.price |currency}}   </span>
+                        <!-- <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span> -->
+
+                   
+                    </div>
+                </td>
+                <td>
+                   
+                </td>
+            </tr>
+        </tbody>
+    
+    </table>
+</ng-template>
+
+
+
+
+<!-- <app-products [perent_Date]="fullName" (childEvent)="massageFromChild=$event"></app-products> -->

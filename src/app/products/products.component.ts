@@ -1,7 +1,9 @@
+import { ProductServiceService } from './../product-service.service';
 import { DiscountOffers } from './../SharedClassesAndTypes/DiscountOffers';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { ICategory } from '../SharedClassesAndTypes/ICategory';
 import { IProduct } from '../SharedClassesAndTypes/IProduct.js';
+
 
 
 @Component({
@@ -20,35 +22,20 @@ export class ProductsComponent implements OnInit {
     CategorySelected:string="";
 
 
+    
+
+
+
+
  
       
-    ProductList:Array<IProduct>=[
-      {Id:1,name:"T-shirt",quentity:12,price:200,img:"assets/pr1.jpg",pres:DiscountOffers.pres_10},
-      {Id:2,name:"Cotton Solid ",quentity:12,price:200,img:"assets/2.jpg",pres:DiscountOffers.Nodis},
-      {Id:3,name:"Hoodie grey",quentity:12,price:200,img:"assets/3.png",pres:DiscountOffers.pres_15},
-      {Id:4,name:"T-Shirt Summer",quentity:12,price:200,img:"assets/4.jpg",pres:DiscountOffers.Nodis},
+    ProductList:any;
+    ProductListById:any;
+
+
      
-    ];
-     CategoryList:Array<ICategory>=[
-       {id:1,name:"Laptop"},
-       {id:2,name:"Clothes"},
-       {id:3,name:"Mobile"},
-       {id:4,name:"Food"},
-      ];
-
-      oneProduct:Array<IProduct>=[
-        {Id:1,name:"T-shirt",quentity:12,price:200,img:"assets/pr1.jpg",pres:DiscountOffers.pres_10},
-       
-       
-      ];
-
-
-
-      show(){
-      this.IsPurshased=!this.IsPurshased;
-      }
  
-    constructor(){
+    constructor(private productService:ProductServiceService){
 
        this.NoDis= DiscountOffers.pres_10;
        this.storName="H$M";
@@ -57,24 +44,46 @@ export class ProductsComponent implements OnInit {
        this.StoreLogo="assets/logo.png";
       // this.ClientName="abdelaliem hosny";
      }
+
+     ngOnInit(): void {
+     this.ProductListById=this.productService.getProductById(2);
+    }
+   // @Output() childEvent=new EventEmitter ();
+    
+    
+   
+
+    renderValues(){
+       this.ProductList=this.productService.getAllProduct();
+      // this.childEvent.emit("ProductList");
+
+        return this.ProductList;
+
+    }
+
  
-  // constructor(
-  //  NoDiscount:DiscountOffers,
-  // @Inject(String) storName: string="H$M",
-  // @Inject(Array) ProductList:Array<IProduct>,
-  // @Inject(string) StoreLogo:string ){
-  //   this.NoDiscount=DiscountOffers.pres_10;
-  //   this.storName=storName;
-  //   this.ProductList=ProductList;
-  //   this.StoreLogo=StoreLogo;
-  // }
+    CategoryList:Array<ICategory>=[
+      {id:1,name:"Laptop"},
+      {id:2,name:"Clothes"},
+      {id:3,name:"Mobile"},
+      {id:4,name:"Food"},
+     ];
+
+     oneProduct:Array<IProduct>=[
+       {Id:1,name:"T-shirt",quentity:12,price:200,img:"assets/pr1.jpg",pres:DiscountOffers.pres_10},
+     ];
+
+
+
+     show(){
+     this.IsPurshased=!this.IsPurshased;
+     }
 
 
  
   
 
-  ngOnInit(): void {
-  }
+ 
 
 
    

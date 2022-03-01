@@ -1,0 +1,7 @@
+[
+  {"Id":1,"name":"T-shirt","quentity":12,"price":200,"img":"assets/pr1.jpg"},
+  {"Id":2,"name":"Cotton Solid ","quentit":12,"price":200,"img":"assets/2.jpg"},
+  {"Id":3,"name":"Hoodie grey","quentity":12,"price":200,"img":"assets/3.png"},
+  {"Id":4,"name":"T-Shirt Summer","quentity":12,"price":200,"img":"assets/4.jpg"}
+ 
+]
