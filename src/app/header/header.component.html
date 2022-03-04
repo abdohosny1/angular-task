@@ -1,4 +1,4 @@
-  
+<!--   
   <div class="d-flex" style="width: 100%; background-color: rgb(202, 209, 238);">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills" orientation="landscape">
       <li ngbNavItem="Home" class="listyle">
@@ -12,7 +12,13 @@
         </ng-template>
       </li>
       <li ngbNavItem="Cart" class="listyle">
-        <a ngbNavLink>Cart</a>
+        <a ngbNavLink>Users</a>
+        <ng-template ngbNavContent>
+        </ng-template>
+      </li>
+
+      <li ngbNavItem="Cart" class="listyle">
+        <a ngbNavLink>Post</a>
         <ng-template ngbNavContent>
         </ng-template>
       </li>
@@ -20,8 +26,18 @@
   
     <div [ngbNavOutlet]="nav" class="ms-4"></div>
   </div>
-  <br>
+  <br> -->
+
+  <div class="row  navStyle">
+    <ul>
+      <li><a routerLink="/home">HOME</a></li>
+      <li><a routerLink="/product">Product</a></li>
+      <li><a routerLink="/user">Users</a></li>
+      <li><a routerLink="/post">Post</a></li>
+      
+
+    </ul>
+  </div>
   
   <!-- //<pre>Active: {{ active }}</pre> -->
 
-  <img src={{pathImage}} alt="image" width="100%">

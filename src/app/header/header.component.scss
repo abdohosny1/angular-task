@@ -1,3 +1,35 @@
-.listyle{
-    color: rgb(247, 244, 244);
+// .listyle{
+//     color: rgb(247, 244, 244);
+// }
+
+.navStyle{
+    background-color: rgb(34, 155, 255);
+    color: rgb(248, 244, 244);
+    
+    
+}
+.navStyle>ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    list-style: none;
+
+
+}
+.navStyle>ul>li{
+    align-self: center;
+
+}
+a{
+    color: rgb(248, 244, 244);
+    
+    text-decoration: none;
+
+}
+
+.navStyle>ul>li>a:hover{
+    text-decoration: underline;
+    color: rgb(6, 49, 85);
+    cursor: pointer;
+    font-size: 17;
 }

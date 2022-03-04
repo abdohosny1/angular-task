@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
   active = 'top';
-  pathImage:string="assets/b3.png";
 
   ngOnInit(): void {
   }

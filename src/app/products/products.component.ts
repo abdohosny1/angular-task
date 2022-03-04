@@ -20,15 +20,6 @@ export class ProductsComponent implements OnInit {
     ClientName:any="";
     IsPurshased:boolean=true;
     CategorySelected:string="";
-
-
-    
-
-
-
-
- 
-      
     ProductList:any;
     ProductListById:any;
 
@@ -47,6 +38,7 @@ export class ProductsComponent implements OnInit {
 
      ngOnInit(): void {
      this.ProductListById=this.productService.getProductById(2);
+     this.ProductList=this.productService.getAllProduct();
     }
    // @Output() childEvent=new EventEmitter ();
     
@@ -54,7 +46,7 @@ export class ProductsComponent implements OnInit {
    
 
     renderValues(){
-       this.ProductList=this.productService.getAllProduct();
+      
       // this.childEvent.emit("ProductList");
 
         return this.ProductList;

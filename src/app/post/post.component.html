@@ -1,0 +1,33 @@
+
+<div class="table-responsive">
+    <table class="table table table-hover  styletable   " >
+
+        <thead>
+            <tr class="table-dark">
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>View Comment</th>
+
+
+    
+            </tr>
+        </thead>
+    
+        <tbody *ngFor="let item of list_post">
+            <tr  class="table-primary">
+    
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.body}}</td>
+                <td><button (click)="goToCommentDetails(item)">view</button></td>
+
+
+    
+    
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+

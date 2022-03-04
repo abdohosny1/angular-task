@@ -9,10 +9,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
-import { GetAllProductComponent } from './service/get-all-product/get-all-product.component';
-import { GetAllProductDetailsComponent } from './service/get-all-product-details/get-all-product-details.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+import { PostComponent } from './post/post.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 
@@ -24,8 +27,11 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     ProductsComponent,
     FilterPipe,
-    GetAllProductComponent,
-    GetAllProductDetailsComponent,
+    UserComponent,
+    PostComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    CommentComponent,
 
   ],
   imports: [

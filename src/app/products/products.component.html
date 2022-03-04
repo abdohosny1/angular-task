@@ -1,5 +1,35 @@
 
-{{"get product by Id =====>"+ProductListById.name}}
+
+<div class="row productdiv">
+    
+    <table *ngFor="let item of ProductList" class="col-lg-3 " style="display: inline-block;">
+        <tbody>
+            <tr>
+                <td>
+                    <div  class="div_style">
+                        <div class=" view overlay zoom" >
+                            <img src={{item.img}} width="300" height="300" class=" img_style rounded   d-block   "><br>
+                            
+                        </div>
+                        <span   class="text-primary  d-block span_style"> {{item.name |uppercase}}</span>
+                        <span   class="text-secondary  span_style">  {{item.price |currency}}   </span>
+                        <!-- <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span> -->
+
+                        <button class="button_style">Add To Cart</button>
+                   
+                    </div>
+                </td>
+                <td>
+                   
+                </td>
+            </tr>
+        </tbody>
+    
+    </table>
+
+
+</div>
+<!-- {{"get product by Id =====>"+ProductListById.name}} -->
 <br>
 <!-- 
 
@@ -99,35 +129,7 @@
 
 
 
-<div class="row">
-    
-        <table *ngFor="let item of ProductList" class="col-lg-3 " style="display: inline-block;">
-            <tbody>
-                <tr>
-                    <td>
-                        <div  class="div_style">
-                            <div class=" view overlay zoom" >
-                                <img src={{item.img}} width="300" height="300" class=" img_style rounded   d-block   "><br>
-                                
-                            </div>
-                            <span   class="text-primary  d-block span_style"> {{item.name |uppercase}}</span>
-                            <span   class="text-secondary  span_style">  {{item.price |currency}}   </span>
-                            <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span>
 
-                            <button class="button_style">Add To Cart</button>
-                       
-                        </div>
-                    </td>
-                    <td>
-                       
-                    </td>
-                </tr>
-            </tbody>
-        
-        </table>
-    
-    
-</div>
 <br><br>
 
 
