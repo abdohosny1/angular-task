@@ -9,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
 
 
-  list_User:any;
-  errorMassage: any;
+
+
+  list_User:any=[];
+  getoneuser:any;
+  errorMassage: any=[];
 
 
   constructor( private listUser:UserService) { }
@@ -23,6 +26,46 @@ export class UserComponent implements OnInit {
       (error) => {
         this.errorMassage = error;
       }
-    );  }
+    ); 
+
+    this.getoneuser=this.listUser.getuserId(1);
+   }
+
+
+   
+    
+
+ // getoneusers(id:any){
+    //  this.list_User.forEach(function(e)  {
+       
+    //  });
+    //  }
+//      this.list_User.forEach(function (value) {
+//   console.log(value);
+// });
+
+
+
+
+
+getuserId(id:any){
+
+  if(typeof id == 'number')
+  {
+   this.list_User.forEach((e:any)=>{
+     if(e.id===id){
+      this.getoneuser=e;
+     }
+     
+   });
+   return this.getoneuser;
+
+  }else{
+    return null;
+  }
+  
+}
+
+
 
 }

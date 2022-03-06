@@ -8,14 +8,33 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   private URL:string="https://jsonplaceholder.typicode.com/users"
-
+  user:any;
+  getoneuser:any;
 
   constructor(private http:HttpClient) { }
 
   returnUsers():Observable<IUser[]> {
 
-    return  this.http.get<IUser[]>(this.URL).pipe(catchError((error)=>{
+    return this.user= this.http.get<IUser[]>(this.URL).pipe(catchError((error)=>{
       return throwError(()=>error.message||"");
     }))
+  }
+
+  getuserId(id:any){
+
+    if(typeof id == 'number')
+    {
+     this.user.forEach((e:any)=>{
+       if(e.id===id){
+        this.getoneuser=e;
+       }
+       
+     });
+     return this.getoneuser;
+  
+    }else{
+      return null;
+    }
+    
   }
 }

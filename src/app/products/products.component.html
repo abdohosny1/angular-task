@@ -1,5 +1,6 @@
 
 
+
 <div class="row productdiv">
     
     <table *ngFor="let item of ProductList" class="col-lg-3 " style="display: inline-block;">
@@ -13,7 +14,7 @@
                         </div>
                         <span   class="text-primary  d-block span_style"> {{item.name |uppercase}}</span>
                         <span   class="text-secondary  span_style">  {{item.price |currency}}   </span>
-                        <!-- <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span> -->
+                        <span   class="text-danger  span_style">    {{item.pres|percent :'2.0-3' }} </span>
 
                         <button class="button_style">Add To Cart</button>
                    
@@ -29,6 +30,13 @@
 
 
 </div>
+
+ <div class="styleaction">
+    <button class="btn btn-primary action" (click)="showproductWitdiscount()" >Product with discount</button>
+    <button class="btn btn-primary action"  (click)="showproductWithoutdiscount()">Product without discount</button>
+    
+ </div>
+
 <!-- {{"get product by Id =====>"+ProductListById.name}} -->
 <br>
 <!-- 

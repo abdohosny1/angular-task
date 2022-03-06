@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { ProductServiceService } from './../product-service.service';
+import { GetProductService } from './../service/product/get-product.service';
 import { DiscountOffers } from './../SharedClassesAndTypes/DiscountOffers';
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { ICategory } from '../SharedClassesAndTypes/ICategory';
@@ -23,10 +25,13 @@ export class ProductsComponent implements OnInit {
     ProductList:any;
     ProductListById:any;
 
+    list_product:any;
+    errorMassage: any;
+
 
      
  
-    constructor(private productService:ProductServiceService){
+    constructor(private productService:ProductServiceService,private servic:GetProductService,private router:Router){
 
        this.NoDis= DiscountOffers.pres_10;
        this.storName="H$M";
@@ -39,6 +44,15 @@ export class ProductsComponent implements OnInit {
      ngOnInit(): void {
      this.ProductListById=this.productService.getProductById(2);
      this.ProductList=this.productService.getAllProduct();
+
+     this.servic.returnProduct().subscribe(
+      (data) => {
+        this.list_product = data;
+      },
+      (error) => {
+        this.errorMassage = error;
+      }
+    );
     }
    // @Output() childEvent=new EventEmitter ();
     
@@ -61,9 +75,9 @@ export class ProductsComponent implements OnInit {
       {id:4,name:"Food"},
      ];
 
-     oneProduct:Array<IProduct>=[
-       {Id:1,name:"T-shirt",quentity:12,price:200,img:"assets/pr1.jpg",pres:DiscountOffers.pres_10},
-     ];
+    //  oneProduct:Array<IProduct>=[
+    //    {Id:1,name:"T-shirt",quentity:12,price:200,img:"assets/pr1.jpg",pres:DiscountOffers.pres_10},
+    //  ];
 
 
 
@@ -72,8 +86,17 @@ export class ProductsComponent implements OnInit {
      }
 
 
- 
+     showproductWithoutdiscount(){
+      this.router.navigate(["/without"]);
+
+     }
   
+
+     showproductWitdiscount(){
+      this.router.navigate(["/withdis"]);
+
+       
+     }
 
  
 

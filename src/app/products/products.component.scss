@@ -46,3 +46,14 @@
      text-align: center; 
      margin: 30;
 }
+
+.action{
+    margin: 2rem;
+    text-align: center;
+}
+.styleaction{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

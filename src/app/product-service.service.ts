@@ -7,6 +7,11 @@ import { Injectable } from '@angular/core';
 })
 export class ProductServiceService {
 
+  itemProduct:any={};
+  productWithDiscount:Array<IProduct>=[];
+  productWithOutDiscount:Array<IProduct>=[];
+
+
   constructor() { }
 
 
@@ -23,7 +28,6 @@ export class ProductServiceService {
     return this.allProductList;
 
   }
-  itemProduct:any={};
 
   getProductById(id:any){
 
@@ -41,5 +45,30 @@ export class ProductServiceService {
       return null;
     }
     
+  }
+
+  getproductWithDiscount(){
+    this.productWithDiscount=[];
+    this.allProductList.forEach((e)=>{
+      if(e.pres===DiscountOffers.Nodis){
+        this.productWithDiscount.push(e);
+      }
+    
+    })
+    return this.productWithDiscount;
+
+  }
+
+
+  getproductWithOutDiscount(){
+    this.productWithOutDiscount=[];
+    this.allProductList.forEach((e)=>{
+      if(!(e.pres===DiscountOffers.Nodis)){
+        this.productWithOutDiscount.push(e);
+      }
+    
+    })
+    return this.productWithOutDiscount;
+
   }
 }

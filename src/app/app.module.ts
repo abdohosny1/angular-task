@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +8,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap' ;
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -16,6 +16,11 @@ import { PostComponent } from './post/post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { CommentComponent } from './comment/comment.component';
+import { LoginnComponent } from './loginn/loginn.component';
+import { RegisterrComponent } from './registerr/registerr.component';
+import { ProductWithDisComponent } from './product-with-dis/product-with-dis.component';
+import { ProductWithoutDisComponent } from './product-without-dis/product-without-dis.component';
+
 
 
 
@@ -32,6 +37,11 @@ import { CommentComponent } from './comment/comment.component';
     PageNotFoundComponent,
     HomeComponent,
     CommentComponent,
+    LoginnComponent,
+    RegisterrComponent,
+    ProductWithDisComponent,
+    ProductWithoutDisComponent,
+
 
   ],
   imports: [
@@ -40,6 +50,9 @@ import { CommentComponent } from './comment/comment.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
+    
+
     
   ],
   providers: [],
